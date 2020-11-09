@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -76,7 +78,11 @@ class  Controleur implements ActionListener{
 				Robot robot = new Robot();
 				Rectangle rec = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 				BufferedImage screenshot = robot.createScreenCapture(rec);
-				String Pics ="\\screenshot.jpg";
+				
+			 
+			
+				
+				String Pics =  ("\\screenshot" + Math.random()+".jpg");        
 				ImageIO.write(screenshot,"JPG",
 						new File(fullPath + Pics));
 				 System.out.print(fullPath + Pics);
