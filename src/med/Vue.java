@@ -35,7 +35,8 @@ class Vue extends JFrame {
     JButton MonScreenshotBtn;
 	JButton CHOOSER;
     
-    Vue(Modele modele) {
+    @SuppressWarnings("static-access")
+	Vue(Modele modele) {
     	this.modele = modele;
     	modele.mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
     	
@@ -46,9 +47,11 @@ class Vue extends JFrame {
 	      catch (Exception e) {
 	         System.out.println(e);
 	      }
+		
     	this.setTitle("L2soirMediaPlayer");
 		this.setBounds(100, 100, 600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BorderLayout());   	 
       
@@ -63,7 +66,6 @@ class Vue extends JFrame {
         MonScreenshotBtn.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         controlsPane.add(MonScreenshotBtn); 
         
-        
 		//Pour previous BTN///////////////////////////////////////////////////
         Icon MonPreviousBtnIcon = new ImageIcon(getClass().getClassLoader().getResource("previous.png"));
         MonPreviousBtn = new JButton(MonPreviousBtnIcon);
@@ -72,16 +74,11 @@ class Vue extends JFrame {
         controlsPane.add(MonPreviousBtn); 
         
 		//Pour PLAY BTN///////////////////////////////////////////////////
- 
         Icon MonPlayBtnIcon = new ImageIcon(getClass().getClassLoader().getResource("play.png"));
         MonPlayBtn = new JButton(MonPlayBtnIcon); 
         MonPlayBtn.setContentAreaFilled(false);
         MonPlayBtn.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         controlsPane.add(MonPlayBtn);
-   
-
-         
-        
         
 		//Pour Pause BTN///////////////////////////////////////////////////
         Icon MonPauseBtnIcon = new ImageIcon(getClass().getClassLoader().getResource("pause.png"));
